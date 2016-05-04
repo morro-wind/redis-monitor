@@ -14,6 +14,8 @@ def get_redis_servers():
             server['group']='ungrouped'
         if(server.get('instance')==None or server.get('instance')==''):
             server['instance']=(str)(server['port'])
+        if(server.get('password')==None or server.get('password')==''):
+            server['password']=''
         data.append(server)
     return data
 

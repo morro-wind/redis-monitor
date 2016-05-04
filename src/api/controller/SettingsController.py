@@ -7,7 +7,7 @@ class SettingsController(BaseController):
     def get(self):
         server_list=""
         for server in settings.get_redis_servers():
-            server_list+= "%(server)s:%(port)s %(group)s %(instance)s\r\n" % server
+            server_list+= "%(server)s:%(port)s %(password)s %(group)s %(instance)s\r\n" % server
         
         sms_repl=0;
         sms_stats=0;
@@ -40,13 +40,16 @@ class SettingsController(BaseController):
                 port=(int)(eps2[0])
                 group=''
                 instance=''
+                password=''
                 
                 if(len(eps2)>1):
                     group=eps2[1]
                 if(len(eps2)>2):
                     instance=eps2[2]
+                if(len(eps2)>3):
+                    password=eps2[3]
                 
-                servers.append({'server':ip,'port':port,'group':group,'instance':instance})
+                servers.append({'server':ip,'port':port,'password':password,'group':group,'instance':instance})
             settings.save_settings(servers, sms)
             self.write({"status":200})
         except Exception,ex:

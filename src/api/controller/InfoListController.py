@@ -15,7 +15,7 @@ class InfoListController(BaseController):
             
             info=self.getStatsPerServer((server['server'],server['port'],server['password']))
             
-            info.update({"addr" : info.get("server_name")[0].replace(".", "_") +  str(info.get("server_name")[1]) + str(info.get("server_name")[2]),
+            info.update({"addr" : info.get("server_name")[0].replace(".", "_") +  str(info.get("server_name")[1]),
             })
             info['show_name']=server['group']+'('+server['instance']+')'+'('+server['password']+')'
             info['group']= server['group']

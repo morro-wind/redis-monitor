@@ -38,7 +38,7 @@ class InfoThread(threading.Thread):
         self.port = port
         self.password = password
         self.instancename = instancename
-        self.id = self.server + ":" + str(self.port)
+        self.id = self.server + ":" + str(self.port) + ":" + str(self.password)
         
         self._stop = threading.Event()
         self.stats_provider = None

@@ -12,7 +12,7 @@ class ServerListController(BaseController):
         redis_servers = settings.get_redis_servers()
 
         for server in redis_servers:
-            server['id']= "%(server)s:%(port)s" % server
+            server['id']= "%(server)s:%(port)s:%(password)s" % server
             server_list.append(server)
 
         return server_list

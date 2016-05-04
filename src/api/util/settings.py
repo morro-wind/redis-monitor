@@ -9,13 +9,13 @@ def get_redis_servers():
     servers= config["RedisServers"]
     data=[]
     for server in servers:
-        server['ep']='%(server)s:%(port)d' % server
+        server['ep']='%(server)s:%(port)d %(password)s' % server
         if(server.get('group')==None or server.get('group')==''):
             server['group']='ungrouped'
         if(server.get('instance')==None or server.get('instance')==''):
             server['instance']=(str)(server['port'])
         if(server.get('password')==None or server.get('password')==''):
-            server['password']=''
+            server['password']=(str)(server['password'])
         data.append(server)
     return data
 

@@ -19,8 +19,8 @@ from daemonized import daemonized
 class redis_live(daemonized):
     def run_daemon(self):
 
-        define("port", default=8888, help="run on the given port", type=int)
-        define("debug", default=0, help="debug mode", type=int)
+        define("port", default=9888, help="run on the given port", type=int)
+        define("debug", default=1, help="debug mode", type=int)
         tornado.options.parse_command_line()
         
         print os.path.abspath('.')

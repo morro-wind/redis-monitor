@@ -43,11 +43,11 @@ class SettingsController(BaseController):
                 password=''
                 
                 if(len(eps2)>1):
-                    group=eps2[1]
+                    password=eps2[1]
                 if(len(eps2)>2):
-                    instance=eps2[2]
+                    group=eps2[2]
                 if(len(eps2)>3):
-                    password=eps2[3]
+                    instance=eps2[3]
                 
                 servers.append({'server':ip,'port':port,'password':password,'group':group,'instance':instance})
             settings.save_settings(servers, sms)
